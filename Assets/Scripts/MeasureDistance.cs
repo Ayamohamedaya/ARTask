@@ -5,35 +5,62 @@ using UnityEngine.Events;
 
 public class MeasureDistance : MonoBehaviour
 {
-    [SerializeField]GameObject chair;
-    [SerializeField]GameObject character;
+    [SerializeField]GameObject marker_1;
+    [SerializeField]GameObject marker_2;
+    [SerializeField] GameObject chair;
     [SerializeField] Animator character_Anim;
     [SerializeField] float speed=0.2f;
     [SerializeField] float distance;
+    [SerializeField]Transform originalPosition;
     float targetY;
     Vector3 dir;
     float velocityTurn;
-    bool isWalking = false;
+    bool isPicked = false;
+    bool isMove=true;
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        if((character.transform.position-chair.transform.position).sqrMagnitude<=distance)
+        if(isMove==true && (marker_1.transform.position-marker_2.transform.position).sqrMagnitude<=distance)
         {
-            Move();
+            Move(chair.transform.position);
+        }
+        if(isPicked==true)
+        {
+            
+            Move(originalPosition.position);
+           // isPicked = false;
+        }
+        if(transform.position==originalPosition.position)
+        {
+            
+            isPicked = false;
+            Debug.Log("right");
+            character_Anim.SetBool("walk",false);
         }
     }
-    private void Move()
+    private void Move(Vector3 headedPosition)
     {
-        transform.position = Vector3.MoveTowards(transform.position, chair.transform.position, speed * Time.deltaTime);
-        dir = (chair.transform.position - transform.position).normalized;
+        transform.position = Vector3.MoveTowards(transform.position, headedPosition, speed * Time.deltaTime);
+        dir = (headedPosition - transform.position).normalized;
         targetY = Mathf.Atan2(dir.x, dir.z) * Mathf.Rad2Deg;
         transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetY, ref velocityTurn, 0.5f);
         character_Anim.SetBool("walk", true);
+        
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Chair")
+        {
+            isMove = false;
+            Debug.Log("chair");
+            chair.transform.parent = this.transform;
+            isPicked = true;
+        }
     }
 }
