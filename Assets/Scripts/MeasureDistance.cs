@@ -9,9 +9,9 @@ public class MeasureDistance : MonoBehaviour
     [SerializeField]GameObject marker_2;
     [SerializeField] GameObject chair;
     [SerializeField] Animator character_Anim;
-    [SerializeField] float speed=0.2f;
-    [SerializeField] float distance;
-    [SerializeField]Transform originalPosition;
+    [SerializeField] float speed=2f;
+    [SerializeField] float distance=350;
+    [SerializeField]GameObject originalPosition;
     float targetY;
     Vector3 dir;
     float velocityTurn;
@@ -20,7 +20,10 @@ public class MeasureDistance : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        marker_1 = GameObject.Find("CharacterMarker");
+        marker_2 = GameObject.Find("ObjectMarker");
+        chair = GameObject.FindGameObjectWithTag("Chair");
+        originalPosition = GameObject.Find("Cube");
     }
 
     // Update is called once per frame
@@ -33,14 +36,13 @@ public class MeasureDistance : MonoBehaviour
         if(isPicked==true)
         {
             
-            Move(originalPosition.position);
-           // isPicked = false;
-        }
-        if(transform.position==originalPosition.position)
+            Move(originalPosition.transform.position);
+        }        
+        if(transform.position==originalPosition.transform.position)
+
         {
             
             isPicked = false;
-            Debug.Log("right");
             character_Anim.SetBool("walk",false);
         }
     }
@@ -58,7 +60,6 @@ public class MeasureDistance : MonoBehaviour
         if (other.gameObject.tag == "Chair")
         {
             isMove = false;
-            Debug.Log("chair");
             chair.transform.parent = this.transform;
             isPicked = true;
         }

@@ -89,9 +89,10 @@ GameObject:
   m_Component:
   - component: {fileID: 400002}
   - component: {fileID: 11100000}
+  - component: {fileID: 780595342}
   m_Layer: 0
   m_Name: WoodenChair
-  m_TagString: Untagged
+  m_TagString: Chair
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,9 +104,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100002}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.80596733, y: 6.159115, z: -20.62305}
-  m_LocalScale: {x: 0.1688639, y: 0.1688639, z: 0.1688639}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.073442794, y: 0.073442794, z: 0.073442794}
   m_Children:
   - {fileID: 400000}
   m_Father: {fileID: 0}
@@ -127,3 +128,16 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!65 &780595342
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100002}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 36.478447, y: 54.904106, z: 44.654186}
+  m_Center: {x: -1.4452087, y: 26.952053, z: 2.7655814}

@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 43458043
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 680cf8f9a6eb3f8c94d8e1ce70007be3
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 21c99c86a43ad817b2cb7f65458ae090
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/Barbarian/Models/Materials/Accessories_Color.mat
+Dependencies:
+- D:/ARTask/Assets/Build Bundle/character
