@@ -31,7 +31,7 @@ public class LoadAssetBundleRemote2 : MonoBehaviour
 
                 // Get downloaded asset bundle
                 AssetBundle bundle = DownloadHandlerAssetBundle.GetContent(uwr);
-                var mat = bundle.LoadAsset<Renderer>("Accessories_Color");
+              
              //   Instantiate(mat);
                 var character = bundle.LoadAsset<GameObject>(assetName);
                 // var prefab = bundle.LoadAsset(assetName);

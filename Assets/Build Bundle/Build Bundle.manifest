@@ -1,10 +1,10 @@
 ManifestFileVersion: 0
-CRC: 3207198020
+CRC: 900990801
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: character
+      Name: chair
       Dependencies: {}
     Info_1:
-      Name: chair
+      Name: character
       Dependencies: {}
